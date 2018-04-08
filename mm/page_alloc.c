@@ -5345,8 +5345,8 @@ unsigned long free_reserved_area(unsigned long start, unsigned long end,
 	}
 
 	if (pages && s)
-		pr_info("Freeing %s memory: %ldK (%lx - %lx)\n",
-			s, pages << (PAGE_SHIFT - 10), start, end);
+		pr_info("Freeing %s memory: %ldK\n",
+			s, pages << (PAGE_SHIFT - 10));
 
 	return pages;
 }
@@ -6474,9 +6474,6 @@ static const struct trace_print_flags pageflag_names[] = {
 #endif
 #ifdef CONFIG_TRANSPARENT_HUGEPAGE
 	{1UL << PG_compound_lock,	"compound_lock"	},
-#endif
-#ifdef CONFIG_KSM_CHECK_PAGE
-	{1UL << PG_ksm_scan0,           "PG_ksm_scan0"  },
 #endif
 	{1UL << PG_readahead,           "PG_readahead"  },
 };
