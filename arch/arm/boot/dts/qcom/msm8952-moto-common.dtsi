@@ -1121,3 +1121,16 @@
 	/* Disable CPU idle power collapse for factory */
 	mmi,pm-qos-latency-factory = <2 2 2>;
 };
+
+&firmware {
+	android {
+		fstab {
+			vendor {
+				dev = "/dev/block/bootdevice/by-name/oem";
+			};
+			system {
+				dev = "/dev/block/bootdevice/by-name/system";
+			};
+		};
+	};
+};
