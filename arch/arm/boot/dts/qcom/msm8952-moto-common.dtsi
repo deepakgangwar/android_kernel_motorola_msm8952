@@ -1124,12 +1124,24 @@
 
 &firmware {
 	android {
+		compatible = "android,firmware";
 		fstab {
+			compatible = "android,fstab";
 			vendor {
-				dev = "/dev/block/bootdevice/by-name/oem";
+				compatible = "android,vendor";
+				dev = "/dev/block/platform/bootdevice/by-name/oem";
+				type = "ext4";
+				mnt_flags = "ro,barrier=1,discard";
+				fsmgr_flags = "wait";
+				status = "ok";
 			};
 			system {
-				dev = "/dev/block/bootdevice/by-name/system";
+				compatible = "android,system";
+				dev = "/dev/block/platform/bootdevice/by-name/system";
+				type = "ext4";
+				mnt_flags = "ro,barrier=1,discard";
+				fsmgr_flags = "wait";
+				status = "ok";
 			};
 		};
 	};
